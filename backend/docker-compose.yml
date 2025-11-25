@@ -1,0 +1,33 @@
+services:
+  app:
+    build: .
+    ports:
+      - "${PORT}:${PORT}"
+    environment: 
+      - PORT=${PORT}
+      - MONGO_URI=${MONGO_URI}
+      # - NODE_ENV: production
+    depends_on:
+      - mongo
+    networks:
+      - my-network
+
+  # MongoDB service
+  mongo:
+    image: mongo:latest
+    # container_name:
+    # environment:
+      # MONGO_INITDB_ROOT_USERNAME: root
+      # MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb-init.js:/docker-entrypoint-initdb.d/mongodb-init.js:ro  # Mount init script
+      - ./mongo-data:/data/db  # Mount volume for persistent MongoDB data
+    networks:
+      - my-network
+
+
+networks:
+  my-network:
+    driver: bridge  # Use bridge network for internal communication

@@ -1,0 +1,81 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME:-admin}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}      
+    volumes:
+      - ./mongodb/mongo-data:/data/db
+      - ./mongodb/mongodb-init.js:/docker-entrypoint-initdb.d/mongodb-init.js:ro
+    networks:
+      - my-network
+
+
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+      - "8080:8080"
+    volumes:
+      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto-data:/mosquitto/data
+      - mosquitto-log:/mosquitto/log
+    networks:
+      - my-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    restart: always
+    ports:
+      - "${BACKEND_PORT:-3001}:3001"
+    depends_on:
+      - mongodb
+      - mosquitto
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_DATABASE=mydb
+      - MONGO_USERNAME=${MONGO_USERNAME:-admin}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - MQTT_BROKER_URL=mqtt://mosquitto:1883
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - my-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    restart: always
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_API_URL=${REACT_APP_API_URL:-http://localhost:3001}
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    stdin_open: true
+    tty: true
+    command: npm start
+
+volumes:
+  mosquitto-data:
+  mosquitto-log:
+
+networks:
+  my-network:
+    driver: bridge

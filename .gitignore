@@ -1,0 +1,20 @@
+# Node.js dependencies
+backend/node_modules/
+
+# React.js dependencies
+frontend/node_modules/
+
+# MongoDB
+mongodb/mongo-data/
+
+backend/certs/
+backend/.env
+.env
+
+# Cloud
+cloud/mongodb/mongo-data
+cloud/*.crt
+cloud/*.pem
+cloud/*.key
+cloud/*.pub
+cloud/*.ppk

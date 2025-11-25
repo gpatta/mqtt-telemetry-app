@@ -1,0 +1,44 @@
+.Card {
+    flex: 1 1 300px;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    /* padding: 15px; */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fff;
+}
+  
+.Card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+  
+.Card .CardHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    border-radius: 8px 8px 0px 0px;
+    padding: 10px;
+    background-color: lightgray;
+}
+
+.Card .CardHeader img {
+    width: 30px;
+    height: 30px;
+}
+ 
+.Card h2 {
+    font-size: 1.2em;
+    margin: 0 20px;
+}
+
+.Card h3 {
+    font-size: 1em;
+    margin: 10px;
+}
+  
+.Card p {
+    margin: 15px;
+}

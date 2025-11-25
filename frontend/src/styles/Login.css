@@ -1,0 +1,58 @@
+.LoginContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh; /* Full viewport height */
+    background-color: var(--background-color); /* Light background color */
+}
+  
+.LoginContainer h1 {
+    margin-bottom: 20px; /* Space between title and form */
+    color: var(--text-color); /* Title color */
+}
+  
+.LoginContainer .LoginForm {
+    background-color: white; /* White background for form */
+    padding: 20px; /* Padding around the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+  
+.LoginContainer .LoginForm .FormGroup {
+    margin-bottom: 15px; /* Space between form groups */
+}
+  
+.LoginContainer .LoginForm label {
+    display: block; /* Block display for labels */
+    margin-bottom: 5px; /* Space between label and input */
+    color: #666; /* Label color */
+}
+  
+.LoginContainer .LoginForm .FormInput {
+
+    padding: 10px; /* Padding inside inputs */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 4px; /* Rounded corners */
+}
+  
+.LoginContainer .LoginForm .FormInput:focus {
+    border-color: var(--primary-color); /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+  
+.LoginContainer .LoginForm .LoginButton {
+    width: 100%; /* Full width button */
+    padding: 10px; /* Button padding */
+    font-size: 1rem; /* Button font size */
+    color: white; /* Button text color */
+    background-color: var(--primary-color); /* Button background color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+  
+.LoginContainer .LoginForm .LoginButton:hover {
+    background-color: var(--primary-color-hover); /* Darker shade on hover */
+}
+  

@@ -1,0 +1,42 @@
+.DashboardContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full height of the viewport */
+    background-color: var(--background-color);
+  }
+  
+  .DashboardHeader {
+    /* position: fixed; */
+    display: flex;
+    justify-content: space-between; /* Space between title and button */
+    align-items: center; /* Center align items vertically */
+    background-color: var(--background-color); /* Header background */
+    padding: 10px 20px; /* Padding around the header */
+    border-bottom: 1px solid gray; /* Bottom border */
+  }
+  
+  .DashboardHeader .DashboardTitle {
+    font-size: 1.5rem; /* Title font size */
+    color: var(--text-color); /* Title color */
+  }
+  
+  .DashboardHeader .LogoutButton {
+    padding: 10px 15px; /* Button padding */
+    font-size: 1rem; /* Button font size */
+    color: var(--background-color); /* Button text color */
+    background-color: var(--text-color);; /* Bootstrap danger color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+  
+  .DashboardHeader .LogoutButton:hover {
+    background-color: var(--primary-color-hover); /* Darker shade on hover */
+  }
+  
+  .DashboardContent {
+    flex: 1; /* Take remaining space */
+    padding: 20px; /* Padding for content */
+    background-color: white; /* Content background */
+  }
+  

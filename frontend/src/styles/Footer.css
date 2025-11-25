@@ -1,0 +1,25 @@
+footer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    background-color: var(--footer-background-color);
+}
+
+footer ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li a {
+    color: var(--footer-text-color);
+    text-decoration: none;
+    margin: 0px 20px;
+}
+
+footer p {
+    margin: 16px 0px;
+    color: var(--footer-text-color);
+}

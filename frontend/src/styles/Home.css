@@ -1,0 +1,45 @@
+/* Style for the container to center content */
+.HomeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+    text-align: center;
+    background-color: var(--background-color); /* Light background */
+  }
+  
+  /* Title */
+  .HomeContainer h1 {
+    font-size: 2.5rem;
+    margin: 1rem;
+    color: var(--text-color); /* Darker color for text */
+  }
+  
+  /* Abstract text */
+  .HomeContainer p {
+    font-size: 1.2rem;
+    margin: 1rem;
+    color: var(--text-color); /* Lighter color for abstract text */
+  }
+
+  .HomeContainer a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+  
+  /* Login button */
+  .HomeContainer .LoginButton {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: var(--primary-color); /* Primary button color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .HomeContainer .LoginButton:hover {
+    background-color: var(--primary-color-hover); /* Darker shade on hover */
+  }
+  
